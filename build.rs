@@ -12,9 +12,7 @@ fn build_fastpfor() {
 
     // Compile FastPFOR using CMake
     println!("cargo:rerun-if-changed=cpp");
-    let cmake_out = cmake::Config::new("cpp")
-        .define("WITH_TEST", "OFF")
-        .build();
+    let cmake_out = cmake::Config::new("cpp").define("WITH_TEST", "OFF").build();
     let lib_path = cmake_out.join("lib");
     let lib_path = lib_path.to_str().unwrap();
 
